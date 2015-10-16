@@ -43,15 +43,16 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery.js"></script>
 <script>
 
-    var myImage = document.getElementById("coffee_image");
-    var myRevenueMessage = document.getElementById("revenue");
+    var pic = $('#coffee_image');
+    var myRevenue = $('#revenue');
 
     var drinksOrdered = [];
 
-    myImage.src = "static/coffee_beans.jpg";
-    myImage.addEventListener('click', function () { return makeCoffee("brew"); });
+    pic.attr('src', "static/coffee_beans.jpg");
+    $('#coffee_image').on('click', makeCoffee);
 
     // Append the drink_type to drinks_ordered and use console.log to view the output
 
@@ -60,23 +61,24 @@
         console.log(drinksOrdered);
 
         var myRevenue = revenue();
+        // $('#revenue').html("Today's revenues: " +)
         myRevenueMessage.innerHTML = "Today's revenues: " + myRevenue;
 
-        myImage.setAttribute('src', "static/coffee_machine.jpg");
-        setTimeout(function () { myImage.setAttribute('src', "static/coffee_mug.jpg"); }, 500);
-        setTimeout(function () { myImage.setAttribute('src', "static/coffee_beans.jpg"); }, 1500);
+        $('#coffee_image').attr('src', "static/coffee_machine.jpg");
+        setTimeout(function () { $('#coffee_image').attr('src', "static/coffee_mug.jpg"); }, 500);
+        setTimeout(function () { $('#coffee_image').attr('src', "static/coffee_beans.jpg"); }, 1500);
     }
 
 
     // Create variables for Espresso, Latte, and Hot Chocolate;
     // and add an event listener to each that calls make_coffee
-    var espresso = document.getElementById("espresso");
-    var latte = document.getElementById("latte");
-    var hotChocolate = document.getElementById("hot-chocolate");
+    $('#espresso');
+    $('#latte');
+    $('#hot-chocolate');
 
-    espresso.addEventListener('click', function () { return makeCoffee("espresso"); });
-    latte.addEventListener('click', function () { return makeCoffee("latte"); });
-    hotChocolate.addEventListener('click', function () { return makeCoffee("hot chocolate"); });
+    $('#espresso').on('click', makeCoffee);
+    $('#latte').on('click', makeCoffee);
+    $('#hot-chocolate').on('click', makeCoffee);
 
     // Use this dictionary to calculate profits for the day and log them to the console.
 
